@@ -1,0 +1,18 @@
+package br.com.hackaton;
+import java.util.Scanner;
+import br.com.hackaton.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Corrente contaCorrente = new Corrente(1234, "João", 1000, 500);
+        Poupanca contaPoupanca = new Poupanca(5678, "Maria", 2000);
+ 
+        contaCorrente.depositar(500);
+        contaPoupanca.depositar(300);
+ 
+        contaCorrente.sacar(1500);
+        contaPoupanca.sacar(100);
+ 
+        contaCorrente.transferir(200, contaPoupanca);
+    }
+}

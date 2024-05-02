@@ -1,0 +1,13 @@
+package br.com.hackaton;
+import br.com.hackaton.Conta;
+
+class Poupanca extends Conta {
+    public Poupanca(int numeroConta, String titular, double saldoInicial) {
+        super(numeroConta, titular, saldoInicial);
+    }
+ 
+    @Override
+    public void sacar(double valor) {
+        System.out.println("Saque não é permitido em contas poupança.");
+    }
+}

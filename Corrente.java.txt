@@ -1,0 +1,22 @@
+package br.com.hackaton;
+import br.com.hackaton.Conta;
+
+class Corrente extends Conta {
+    private double limiteChequeEspecial;
+ 
+    public Corrente(int numeroConta, String titular, double saldoInicial, double limiteChequeEspecial) {
+        super(numeroConta, titular, saldoInicial);
+        this.limiteChequeEspecial = limiteChequeEspecial;
+    }
+ 
+    @Override
+    public void sacar(double valor) {
+        double saldoDisponivel = saldo + limiteChequeEspecial;
+        if (valor > 0 && valor <= saldoDisponivel) {
+            saldo -= valor;
+            System.out.println("Saque realizado com sucesso. Saldo atual: R$ " + saldo);
+        } else {
+            System.out.println("Saque não realizado.");
+        }
+    }
+}

@@ -1,0 +1,37 @@
+package br.com.hackaton;
+
+class Conta {
+    protected int numeroConta;
+    protected String titular;
+    protected double saldo;
+ 
+    public Conta(int numeroConta, String titular, double saldoInicial) {
+        this.numeroConta = numeroConta;
+        this.titular = titular;
+        this.saldo = saldoInicial;
+    }
+ 
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito realizado com sucesso. Saldo atual: R$ " + saldo);
+        } else {
+            System.out.println("Déposito não pode ser concluido.");
+        }
+    }
+ 
+    public void transferir(double valor, Conta contaDestino) {
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            contaDestino.depositar(valor);
+            System.out.println("Transferência realizada com sucesso para a conta " + contaDestino.numeroConta);
+        } else {
+            System.out.println("Transferência não realizada.");
+        }
+    }
+    
+    public void sacar(double valor) {
+        System.out.println("Método sacar não está implementado na classe base.");
+    }
+}
+ 
